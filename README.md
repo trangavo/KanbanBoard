@@ -17,4 +17,4 @@ Next, I define different functions to query, add, update the statuses of, and de
 source .venv/bin/activate
 pip3 install -r requirements.txt
 export FLASK_APP=app.py
-flask run```
+flask run
