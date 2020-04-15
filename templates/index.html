@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Kanban board</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <!-- heading of the app, with name and a box to input new tasks -->
+    <h1 class="centered">Kanban board</h1>
+    <div class="centered">
+      <p>What do you have to do?</p>
+      <form action="{{url_for('add')}}" method="POST">
+      <input type="text" name="newitem" value="">
+      <input class="add" type="submit" name="submit" value="add">
+      </form>
+    </div>
+    <!-- create a table with 3 columns for to do, doing, done tasks -->
+    <div class="row">
+      <!-- column to do -->
+      <div class="column centered" >
+        <h2 class="todo">To Do</h2>
+        <!-- for each task in to do, show it together with 3 buttons to update its status-->
+          {% for task in to_do %}
+          <div class="separate">
+            <p>{{task.text}}</p>
+              <form action="{{url_for('move_to_doing', id=task.id)}}">
+                <input class="doing" type="submit" name="submit" value="doing">
+              </form>
+              <form action="{{url_for('move_to_done', id=task.id)}}">
+                <input class="done" type="submit" name="submit" value="done">
+              </form>
+              <form action="{{url_for('delete', id=task.id)}}">
+                <input class="delete" type="submit" name="submit" value="delete">
+              </form>
+          </div>
+          {% endfor %}
+      </div>
+      <!-- column doing -->
+      <div class="column centered">
+        <h2 class="doing">Doing</h2>
+          <!-- for each task in doing, show it together with 3 buttons to update its status-->
+          {% for task in doing %}
+          <div class="separate">
+            <p class="centered">{{task.text}}</p>
+              <form class="" action="{{url_for('move_to_todo', id=task.id)}}">
+                <input class="todo" type="submit" name="submit" value="to do">
+              </form>
+              <form class="" action="{{url_for('move_to_done', id=task.id)}}">
+                <input class="done" type="submit" name="submit" value="done">
+              </form>
+              <form class="" action="{{url_for('delete', id=task.id)}}">
+                <input class="delete" type="submit" name="submit" value="delete">
+              </form>
+          </div>
+          {% endfor %}
+      </div>
+      <!-- column done -->
+      <div class="column centered">
+        <h2 class="done">Done</h2>
+          <!-- for each task in done, show it together with 3 buttons to update its status-->
+          {% for task in done %}
+          <div class="separate">
+            <p class="centered">{{task.text}}</p>
+              <br>
+              <form class="" action="{{url_for('move_to_doing', id=task.id)}}">
+                <input class="doing" type="submit" name="submit" value="doing">
+              </form>
+              <form class="" action="{{url_for('move_to_todo', id=task.id)}}">
+                <input class="todo" type="submit" name="submit" value="to do">
+              </form>
+              <form class="" action="{{url_for('delete', id=task.id)}}">
+                <input class="delete" type="submit" name="submit" value="delete">
+              </form>
+          </div>
+          {% endfor %}
+      </div>
+
+    </div>
+  </body>
+</html>

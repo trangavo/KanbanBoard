@@ -1,0 +1,79 @@
+/* styling for the app */
+
+/* set back ground image */
+body {
+  background-image: url('galaxy.jpg');
+}
+
+/* put the text in the center of its block */
+.centered {
+  text-align: center;
+
+}
+
+/* display the forms next to each other */
+form {
+  display: inline-block;
+}
+
+/* style the table */
+
+* {
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+.column {
+  float: left;
+  word-wrap: break-word;
+  width: 33.33%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* style the color of each button */
+.todo {
+  background-color: green;
+}
+
+.doing {
+  background-color: pink;
+}
+
+.done {
+  background-color: orange;
+}
+
+.delete {
+  background-color: purple;
+}
+
+.add {
+  background-color: yellow;
+  color: black;
+}
+
+/* create a box around each task added */
+.separate {
+  border: thin dotted grey;
+}
+
+/* style different types of texts */
+h1 {
+  color: white;
+  font-family: cursive;
+}
+
+h2 {
+  border: thin solid grey;
+  color: white;
+}
+
+p {
+  color: white;
+}
