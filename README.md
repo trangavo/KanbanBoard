@@ -13,8 +13,8 @@ Next, I define different functions to query, add, update the statuses of, and de
 
 ### How to run
 
-python3.6 -m venv .venv 
+```python3.6 -m venv .venv 
 source .venv/bin/activate
 pip3 install -r requirements.txt
 export FLASK_APP=app.py
-flask run
+flask run```
